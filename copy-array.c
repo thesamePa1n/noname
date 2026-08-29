@@ -10,11 +10,11 @@ int main() {
     arr[i] = num;
   }
 
-  for (int i = 0; i < N / 2; i++) {
-    int tmp = arr[i];
-    arr[i] = arr[N - i - 1];
-    arr[N - i - 1] = tmp;
+  int tmp = arr[0];
+  for (int i = 0; i < N - 1; i++) {
+    arr[i] = arr[i + 1];
   }
+  arr[N - 1] = tmp;
 
   for (int i = 0; i < N; i++) {
     printf("%d ", arr[i]);
@@ -22,3 +22,5 @@ int main() {
   
   return 0;
 }
+
+// 1 2 3 4 5 -> 2 3 4 5 1
