@@ -1,25 +1,23 @@
 #include <stdio.h>
-#define N 5
+#define N 6
 
 int main() {
   int arr[N] = {0};
 
-  printf("Оригинальный массив: ");
   for (int i = 0; i < N; i++) {
     int num;
     scanf("%d", &num);
     arr[i] = num;
   }
 
-  int arr_copy[N];
-
-  for (int i = 0; i < N; i++) {
-    arr_copy[i] = arr[N - i - 1];
+  for (int i = 0; i < N / 2; i++) {
+    int tmp = arr[i];
+    arr[i] = arr[N - i - 1];
+    arr[N - i - 1] = tmp;
   }
 
-  printf("\nСкопированный массив: ");
   for (int i = 0; i < N; i++) {
-    printf("%d ", arr_copy[i]);
+    printf("%d ", arr[i]);
   }
   
   return 0;
