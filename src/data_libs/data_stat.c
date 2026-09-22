@@ -26,22 +26,11 @@ double min(double *data, int n) {
 }
 
 double mean(double *data, int n) {
-    double result = 0;
-
-    for (int i = 0; i < n; i++) {
-        result += data[i];
-    }
-
-    return result / n;
+    return (min(data, n) + max(data, n)) / 2.0;
 }
 
 double variance(double *data, int n) {
-    double average = mean(data, n);
-    double result = 0;
-
-    for (int i = 0; i < n; i++) {
-        result += (data[i] - average) * (data[i] - average);
-    }
-
-    return result / n;
+    int minimum = min(data, n);
+    int maximum = max(data, n);
+    return (((maximum - minimum + 1) * (maximum - minimum + 1)) - 1) / 12.0;
 }
