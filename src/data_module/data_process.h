@@ -5,5 +5,7 @@
 
 
 int normalization(double *data, int n);
+void swap(int *a, int *b);
+void sort(int *a, int first, int last);
 
 #endif
