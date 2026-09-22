@@ -2,17 +2,17 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 BUILD = ../../build
-TARGET = $(BUILD)/Quest_12
+TARGET = $(BUILD)/Quest_13
 
-all: full_coverage_tests
+all: text_processor
 
-full_coverage_tests: $(TARGET)
+text_processor: $(TARGET)
 
-$(TARGET): s21_string.c s21_string_test.c s21_string.h
+$(TARGET): text_processor.c
 	mkdir -p $(BUILD)
-	$(CC) $(CFLAGS) s21_string.c s21_string_test.c -o $(TARGET)
+	$(CC) $(CFLAGS) text_processor.c -o $(TARGET)
 
 clean:
 	rm -f $(TARGET)
 
-rebuild: clean full_coverage_tests
+rebuild: clean text_processor
