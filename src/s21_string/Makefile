@@ -2,11 +2,11 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 BUILD = ../../build
-TARGET = $(BUILD)/Quest_6
+TARGET = $(BUILD)/Quest_7
 
-all: strlen_tests
+all: strcmp_tests
 
-strlen_tests: $(TARGET)
+strcmp_tests: $(TARGET)
 
 $(TARGET): s21_string.c s21_string_test.c s21_string.h
 	mkdir -p $(BUILD)
@@ -15,4 +15,4 @@ $(TARGET): s21_string.c s21_string_test.c s21_string.h
 clean:
 	rm -f $(TARGET)
 
-rebuild: clean strlen_tests
+rebuild: clean strcmp_tests

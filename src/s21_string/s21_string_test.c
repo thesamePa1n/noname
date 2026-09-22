@@ -35,8 +35,56 @@ void s21_strlen_test() {
            result == expected ? "SUCCESS" : "FAIL");
 }
 
+void s21_strcmp_test() {
+    const char *str1;
+    const char *str2;
+    int result;
+    int success;
+
+    str1 = "hello";
+    str2 = "hello";
+    result = s21_strcmp(str1, str2);
+    success = result == 0;
+    printf("Input: \"%s\", \"%s\", Output: %d, %s\n",
+           str1, str2, result,
+           success ? "SUCCESS" : "FAIL");
+
+    str1 = "abc";
+    str2 = "abd";
+    result = s21_strcmp(str1, str2);
+    success = result < 0;
+    printf("Input: \"%s\", \"%s\", Output: %d, %s\n",
+           str1, str2, result,
+           success ? "SUCCESS" : "FAIL");
+
+    str1 = "abd";
+    str2 = "abc";
+    result = s21_strcmp(str1, str2);
+    success = result > 0;
+    printf("Input: \"%s\", \"%s\", Output: %d, %s\n",
+           str1, str2, result,
+           success ? "SUCCESS" : "FAIL");
+
+    str1 = "";
+    str2 = "";
+    result = s21_strcmp(str1, str2);
+    success = result == 0;
+    printf("Input: \"%s\", \"%s\", Output: %d, %s\n",
+           str1, str2, result,
+           success ? "SUCCESS" : "FAIL");
+
+    str1 = "hello";
+    str2 = "hello world";
+    result = s21_strcmp(str1, str2);
+    success = result < 0;
+    printf("Input: \"%s\", \"%s\", Output: %d, %s\n",
+           str1, str2, result,
+           success ? "SUCCESS" : "FAIL");
+}
+
 int main() {
     s21_strlen_test();
+    s21_strcmp_test();
 
     return 0;
 }
