@@ -2,18 +2,17 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 BUILD = ../../build
-TARGET = $(BUILD)/Quest_8
+TARGET = $(BUILD)/Quest_9
 
-all: strcpy
+all: strcat
 
-strcpy: $(TARGET)
+strcat: $(TARGET)
 
-$(TARGET): s21_string.c s21_string.h
+$(TARGET): s21_string.c s21_string_test.c s21_string.h
 	mkdir -p $(BUILD)
-	$(CC) $(CFLAGS) -c s21_string.c -o $(BUILD)/s21_string.o
-	$(CC) $(CFLAGS) $(BUILD)/s21_string.o -o $(TARGET)
+	$(CC) $(CFLAGS) s21_string.c s21_string_test.c -o $(TARGET)
 
 clean:
-	rm -f $(TARGET) $(BUILD)/s21_string.o
+	rm -f $(TARGET)
 
-rebuild: clean strcpy
+rebuild: clean strcat
